@@ -1,34 +1,47 @@
+
+
 class BankAccount
   @@interest_rate = 0.2
   @@accounts = []
-  def initalize
-    @balance = 0
-  end
+
+attr_accessor :balance
+
 
   def self.create
-    @@accounts << BankAccount.new
+    new_account=BankAccount.new
+    @@accounts << new_account
+    return new_account
   end
 
-
-  attr_accessor :balance
-
-
-
-#   def balance
-#     @balance
-#   end
-#
-# def balance
-#   @balance = balance
-# end
+  def initalize
+     @balance = 0
+  end
 
   def deposit(amount)
-    @balance = @balance + amount
+    @balance +=amount
   end
 
-self.create
+  def withdrawal(amount)
+    @balance -=amount
+  end
 
+
+x = self.create
+
+x.initalize
+x.deposit(50)
+x.withdrawal(40)
 p @@accounts
+
+
+
+
+
+
+
+
+
+
 
 
 
